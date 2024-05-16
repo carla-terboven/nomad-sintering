@@ -1,0 +1,26 @@
+{
+  "template": "https://github.com/FAIRmat-NFDI/cookiecutter-nomad-plugin",
+  "commit": "5960c08ce84212c9b40014b3d8a7470a32c77b5f",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Carla Terboven",
+      "email": "carla.terboven@helmholtz-berlin.de",
+      "github_username": "carla-terboven",
+      "plugin_name": "sintering",
+      "module_name": "sintering",
+      "short_description": "A schema package plugin for sintering.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "include_schema_package": true,
+      "include_normalizer": false,
+      "include_parser": false,
+      "include_app": false,
+      "_copy_without_render": [
+        "*.html"
+      ],
+      "_template": "https://github.com/FAIRmat-NFDI/cookiecutter-nomad-plugin"
+    }
+  },
+  "directory": null
+}
