@@ -16,26 +16,25 @@
 # limitations under the License.
 #
 
-from nomad.units import ureg
-import pandas as pd
-
-from nomad.datamodel.data import EntryData
-from nomad.datamodel.metainfo.basesections import Process
-from nomad.datamodel.metainfo.basesections import ProcessStep
-import numpy as np
 from typing import (
     TYPE_CHECKING,
 )
+
+import numpy as np
+import pandas as pd
+from nomad.datamodel.data import (
+    ArchiveSection,
+    EntryData,
+)
+from nomad.datamodel.metainfo.basesections import Process, ProcessStep
 from nomad.metainfo import (
     Package,
     Quantity,
-    SubSection,
     Section,
+    SubSection,
 )
-from nomad.datamodel.data import (
-    EntryData,
-    ArchiveSection,
-)
+from nomad.units import ureg
+
 if TYPE_CHECKING:
     from nomad.datamodel.datamodel import (
         EntryArchive,
@@ -130,8 +129,10 @@ class Sintering(Process, EntryData, ArchiveSection):
                 step = TemperatureRamp()
                 step.name = row['step name']
                 step.duration = ureg.Quantity(float(row['duration [min]']), 'minutes')
-                step.initial_temperature = ureg.Quantity(row['initial temperature [C]'], 'celsius')
-                step.final_temperature = ureg.Quantity(row['final temperature [C]'], 'celsius')
+                step.initial_temperature = (
+                    ureg.Quantity(row['initial temperature [C]'], 'celsius'))
+                step.final_temperature = (
+                    ureg.Quantity(row['final temperature [C]'], 'celsius'))
                 steps.append(step)
         self.steps = steps
 
